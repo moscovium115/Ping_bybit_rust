@@ -1,11 +1,4 @@
-use futures_util::{SinkExt, StreamExt};
 use serde_json::{json, to_string, Value};
-use serde::{Deserialize, Serialize};
-use std::fs::File;
-use std::io::{self, Write};
-use std::process::exit;
-use tokio_tungstenite::connect_async;
-use tokio_tungstenite::tungstenite::Message;
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 use hyper::{Client, Uri};
 use hyper_tls::HttpsConnector;
@@ -27,7 +20,7 @@ async fn main() {
     let body = hyper::body::to_bytes(response.into_body()).await.unwrap();
     println!("{:?}", body);
 
-    let iterations = 50; // Number of iterations
+    let iterations = 10; // Number of iterations
     // also find minimum value
     let mut min_duration = 10e10;
     for _ in 0..iterations{
