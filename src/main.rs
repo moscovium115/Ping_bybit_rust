@@ -20,7 +20,7 @@ async fn main() {
     let body = hyper::body::to_bytes(response.into_body()).await.unwrap();
     println!("{:?}", body);
 
-    let iterations = 10; // Number of iterations
+    let iterations = 100; // Number of iterations
     // also find minimum value
     let mut min_duration = 10e10;
     for _ in 0..iterations{
